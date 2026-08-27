@@ -1,10 +1,24 @@
+/* ==========================================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
 :root {
-  --bg-color: #0f172a;
-  --card-bg: #1e293b;
-  --primary-color: #ff007f;
-  --secondary-color: #00f0ff;
-  --text-color: #f8fafc;
-  --accent-color: #ffe600;
+  --bg-color: #0b0f19;
+  --card-bg: #151d30;
+  --card-border: #1e2942;
+  
+  --primary-neon: #ff007f;   /* Rosa Neon */
+  --secondary-neon: #00f0ff; /* Ciano Neon */
+  --accent-neon: #ffe600;    /* Amarelo Neon */
+  --success-neon: #00ff66;   /* Verde Neon */
+  
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  
+  --font-sans: 'Poppins', sans-serif;
+  --font-code: 'Fira Code', monospace;
+  
+  --shadow-neon: 0 0 25px rgba(255, 0, 127, 0.25);
+  --shadow-cyan: 0 0 25px rgba(0, 240, 255, 0.25);
 }
 
 * {
@@ -14,88 +28,237 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--bg-color);
-  color: var(--text-color);
-  padding: 20px;
+  color: var(--text-main);
+  padding: 40px 20px;
+  line-height: 1.6;
 }
 
-header {
+/* ==========================================================================
+   2. CABEÇALHO
+   ========================================================================== */
+.header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-header h1 {
-  color: var(--secondary-color);
-  font-size: 2.5rem;
+.header-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: rgba(0, 240, 255, 0.1);
+  color: var(--secondary-neon);
+  border: 1px solid var(--secondary-neon);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
-header p {
-  color: var(--primary-color);
+.header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--secondary-neon), var(--primary-neon));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
 }
 
+.header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   3. LAYOUT PRINCIPAL E CARDS (DESAFIO FLEXBOX)
+   ========================================================================== */
 .container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 1000px;
+  gap: 30px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-/* 1. Mudança de coluna para linha e ocupação de 100% da largura */
-article {
+/* DESAFIO 1: Mudança da propriedade flex-direction para linha */
+/* DESAFIO 2: Ajuste da propriedade flex para ocupar 100% da largura */
+article.card {
   display: flex;
-  flex-direction: row; /* Conteúdo em linha */
-  flex: 1 1 100%;       /* Card ocupa 100% da largura do contêiner */
+  flex-direction: row; /* Alinha o conteúdo em linha (lado a lado) */
+  flex: 1 1 100%;       /* Ocupa 100% da largura do container */
+  
   background-color: var(--card-bg);
-  border: 2px solid var(--primary-color);
-  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(255, 0, 127, 0.3);
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-article:hover {
-  transform: scale(1.01);
+article.card:hover {
+  border-color: var(--primary-neon);
+  box-shadow: var(--shadow-neon);
+  transform: translateY(-4px);
+}
+
+/* Mídia e Imagem dentro do Card */
+.card-media {
+  position: relative;
+  width: 320px;
+  min-width: 320px;
+  
+  /* DESAFIO 3: Exemplo de align-self para quebrar o alinhamento central */
+  align-self: flex-start; 
 }
 
 .card-image {
-  width: 250px;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
   object-fit: cover;
-  
-  /* 2. Propriedade align-self aplicada na imagem para alinhar no topo */
-  align-self: flex-start;
+  display: block;
 }
 
+.tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tag-css { background: var(--primary-neon); color: #fff; }
+.tag-design { background: var(--secondary-neon); color: #000; }
+.tag-js { background: var(--accent-neon); color: #000; }
+
+/* Conteúdo do Card */
 .card-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  gap: 10px;
+  justify-content: space-between;
+  padding: 30px;
   flex: 1;
 }
 
+.card-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
 .card-content h2 {
-  color: var(--secondary-color);
+  font-size: 1.6rem;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  line-height: 1.3;
 }
 
+.card-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.card-content code {
+  font-family: var(--font-code);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--accent-neon);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* Rodapé do Card */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.author-avatar {
+  background: var(--card-border);
+  padding: 6px;
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.author-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Botão de Ação */
 .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 6px;
-  width: fit-content;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
   
-  /* 2. Propriedade align-self aplicada no botão para posicionar ao final do eixo cruzado */
+  /* DESAFIO 3: Propriedade align-self no botão para alinhar à direita/baixo */
   align-self: flex-end; 
-  transition: background-color 0.2s;
 }
 
-.btn:hover {
-  background-color: var(--accent-color);
+.btn-primary {
+  background-color: transparent;
+  color: var(--secondary-neon);
+  border: 1px solid var(--secondary-neon);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-neon);
   color: #000;
+  box-shadow: var(--shadow-cyan);
+}
+
+/* ==========================================================================
+   4. RODAPÉ E RESPONSIVIDADE
+   ========================================================================== */
+.main-footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Ajustes para telas menores (Tablets e Celulares) */
+@media (max-width: 768px) {
+  article.card {
+    flex-direction: column; /* Retorna para coluna em telas pequenas para não quebrar a leitura */
+  }
+
+  .card-media {
+    width: 100%;
+    min-width: 100%;
+    height: 200px;
+  }
+
+  .card-image {
+    min-height: 200px;
+  }
+
+  .btn {
+    align-self: stretch; /* Botão ocupa a largura toda no mobile */
+    text-align: center;
+  }
 }
