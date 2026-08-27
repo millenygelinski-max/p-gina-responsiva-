@@ -3,35 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Dev Neon</title>
+  <title>Blog Dev Neon - Edição Expandida</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="header-badge">CSS Flexbox 2026</div>
     <h1>🚀 Blog Dev Neon</h1>
-    <p>Explorando o poder do CSS Flexbox</p>
+    <p>Layouts dinâmicos, cores vibrantes e alinhamentos avançados com Flexbox.</p>
   </header>
 
+  <!-- Conteúdo Principal -->
   <main class="container">
+
+    <!-- Card 1 -->
     <article class="card">
-      <img src="https://picsum.photos/300/200?random=1" alt="Imagem do Post 1" class="card-image">
+      <div class="card-media">
+        <img src="https://picsum.photos/400/300?random=1" alt="Ilustração de código e tecnologia" class="card-image">
+        <span class="tag tag-css">CSS3</span>
+      </div>
       <div class="card-content">
-        <h2>Dominando Flexbox em 2026</h2>
-        <p>Aprenda a alinhar elementos e criar layouts incríveis para a web com poucas linhas de código.</p>
-        <a href="#" class="btn">Ler mais</a>
+        <div class="card-meta">
+          <time datetime="2026-08-27">27 de Agosto de 2026</time> • <span>Leitura de 4 min</span>
+        </div>
+        <h2>Dominando Flexbox em Layouts Horizontais</h2>
+        <p>Aprenda como alternar o fluxo de elementos usando a propriedade <code>flex-direction: row</code> e esticar o conteúdo para cobrir a largura inteira com <code>flex: 1 1 100%</code>.</p>
+        <footer class="card-footer">
+          <div class="author">
+            <span class="author-avatar">💻</span>
+            <span class="author-name">Alex Silva</span>
+          </div>
+          <a href="#" class="btn btn-primary">Ler Artigo Completo &rarr;</a>
+        </footer>
       </div>
     </article>
 
+    <!-- Card 2 -->
     <article class="card">
-      <img src="https://picsum.photos/300/200?random=2" alt="Imagem do Post 2" class="card-image">
+      <div class="card-media">
+        <img src="https://picsum.photos/400/300?random=2" alt="Paleta de cores e design gráfico" class="card-image">
+        <span class="tag tag-design">UI/UX</span>
+      </div>
       <div class="card-content">
-        <h2>Cores Vivas e Design Moderno</h2>
-        <p>Descubra como combinar paletas vibrantes para destacar seus projetos no GitHub.</p>
-        <a href="#" class="btn">Ler mais</a>
+        <div class="card-meta">
+          <time datetime="2026-08-25">25 de Agosto de 2026</time> • <span>Leitura de 6 min</span>
+        </div>
+        <h2>Sistemas de Cores Neon para Interfaces Dark</h2>
+        <p>Aprenda a utilizar variáveis CSS para estruturar temas com contraste elevado, usando tons de ciano, magenta e amarelo para criar identidades visuais memoráveis.</p>
+        <footer class="card-footer">
+          <div class="author">
+            <span class="author-avatar">🎨</span>
+            <span class="author-name">Beatriz Costa</span>
+          </div>
+          <a href="#" class="btn btn-primary">Ler Artigo Completo &rarr;</a>
+        </footer>
       </div>
     </article>
+
+    <!-- Card 3 -->
+    <article class="card">
+      <div class="card-media">
+        <img src="https://picsum.photos/400/300?random=3" alt="Configuração de ambiente e terminal" class="card-image">
+        <span class="tag tag-js">JavaScript</span>
+      </div>
+      <div class="card-content">
+        <div class="card-meta">
+          <time datetime="2026-08-20">20 de Agosto de 2026</time> • <span>Leitura de 3 min</span>
+        </div>
+        <h2>Alinhamentos Especiais com Align-Self</h2>
+        <p>Saiba como quebrar a rotina do alinhamento padrão e posicionar elementos individuais no topo, centro ou fim do container com a propriedade <code>align-self</code>.</p>
+        <footer class="card-footer">
+          <div class="author">
+            <span class="author-avatar">⚡</span>
+            <span class="author-name">Carlos Eduardo</span>
+          </div>
+          <a href="#" class="btn btn-primary">Ler Artigo Completo &rarr;</a>
+        </footer>
+      </div>
+    </article>
+
   </main>
+
+  <!-- Rodapé -->
+  <footer class="main-footer">
+    <p>&copy; 2026 Blog Dev Neon — Criado para o Desafio GitHub.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
